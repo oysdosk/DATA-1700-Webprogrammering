@@ -101,7 +101,7 @@ public class MotorvognRepo {
     }
 
     private String krypterPassord(String passord){
-        return BCrypt.hashpw(passord,BCrypt.gensalt(12)); // Saltet lagres i passordhaset.
+        return BCrypt.hashpw(passord,BCrypt.gensalt(12)); // Saltet lagres i passordhashet.
 
     }
 

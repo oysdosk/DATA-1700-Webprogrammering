@@ -22,3 +22,15 @@ CREATE TABLE Brukerregister(
     PRIMARY KEY (id)
 );
 
+-- Eksamen 2020
+
+CREATE TABLE utover(
+    id INTEGER(11),
+    fornavn VARCHAR(255),
+    etternavn VARCHAR(255),
+    klubb VARCHAR(255),
+    epost VARCHAR(255),
+    passord VARCHAR(255),
+    PRIMARY KEY (id)
+)
+
