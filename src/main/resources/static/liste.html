@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eksamensøving</title>
+    <meta name="author" content="Øystein Døskeland">
+    <meta name="description" content="Repetisjon av vårsemesteret i Webprogrammering">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="module" src="liste.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<h1>Motorvognregister</h1>
+<table>
+    <tr>
+        <td>
+            <label for="innPersonnr">Eiers personnummer</label>
+            <input type="text" id="innPersonnr"></td>
+        <span id="feilPersonnr"></span>
+        <td>
+            <label for="innNavn">Eiers navn</label>
+            <input type="text" id="innNavn"></td>
+        <span id="feilNavn"></span>
+        <td>
+            <label for="innAdresse">Eiers adresse</label>
+            <input type="text" id="innAdresse"></td>
+        <span id="feilAdresse"></span>
+    </tr>
+    <tr>
+        <td>
+            <label for="innKjennetegn">Kjennetegn</label>
+            <input type="text" id="innKjennetegn"></td>
+        <span id="feilKjennetegn"></span>
+        <td>
+            <label for="innMerke">Bilmerke</label>
+            <div id="innMerke"></div></td>
+        <span id="feilMerke"></span>
+        <td>
+            <label for="innType">Biltype</label>
+            <div id="innType"></div></td>
+        <span id="feilType"></span>
+    </tr>
+</table>
+<button id="registrerMotorvogn">Registrer</button>
+<br><br>
+<h2>Alle bilene:</h2>
+<div id="motorvognUtskrift"></div>
+<button class="btn btn-danger" id="slettAlleMotorvogner">Slett alle</button>
+<button class="btn btn-primary" id="loggUt">Logg ut</button>
+<div id="utlogget"></div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eksamensøving</title>
+    <meta name="author" content="Øystein Døskeland">
+    <meta name="description" content="Repetisjon av vårsemesteret i Webprogrammering">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="module" src="index.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<h1>Motorvognregister</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Logg inn</h2>
+            <form class="form">
+                <div class="form-group">
+                    <label for="innBrukernavn">Brukernavn</label>
+                    <input type="text" class="form-control" id="innBrukernavn">
+                    <div id="feilBrukernavn"></div>
+                </div>
+                <div class="form-group">
+                    <label for="innPassord">Passord</label>
+                    <input type="password" class="form-control" id="innPassord">
+                    <div id="feilPassord"></div>
+                </div>
+            </form>
+            <button class="btn btn-primary" id="loggInn">Logg inn</button>
+            <button class="btn btn-danger" id="krypterAllePassord">Krypter alle passord</button>
+            <div id="utlogget"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
