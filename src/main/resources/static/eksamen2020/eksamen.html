@@ -30,14 +30,12 @@
             <td>Passord</td>
             <td><input type="password" id="passord"/></td>
         </tr>
+        <!-- Oppg. 1 a) -->
         <tr>
-            <td><input type="submit" id="registrer"/></td>
+            <td><input type="submit" id="registrer" onclick="registrerUtover()" /></td>
         </tr>
     </table>
-
-    <!-- Oppg. 1 a) -->
-    <button id="registrerUtover" onclick="registrerUtover()">Registrer</button>
-    <div id="feil"></div>
+    <div id="feil" style="color:red"></div>
 
     <!-- Oppg. 2 a) -->
     <h2>Logg inn</h2>
@@ -51,11 +49,11 @@
             <td><input type="password" id="passord2"/></td>
         </tr>
         <tr>
-            <td><input type="submit" id="loggInn" onsubmit="loggInn()"/></td>
+            <td><input type="submit" id="loggInn" onclick="loggInn()"/></td>
         </tr>
     </table>
     <div id="loggetInn"></div>
-    <div id="feil2"></div>
+    <div id="feil2" style="color:red"></div>
 
 
 </body>

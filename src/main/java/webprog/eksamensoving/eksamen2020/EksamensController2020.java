@@ -1,4 +1,4 @@
-package eksamen2020;
+package webprog.eksamensoving.eksamen2020;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,16 +17,17 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-public class EksamensController {
-    @Autowired
-    JdbcTemplate db;
+public class EksamensController2020 {
 
-    private final Logger logger = LoggerFactory.getLogger(EksamensController.class);
+    @Autowired
+    private JdbcTemplate db;
+
+    private final Logger logger = LoggerFactory.getLogger(EksamensController2020.class);
 
     // Oppg. 1 b)
-    @PostMapping("/utover")
+    @PostMapping("/lagreUtover")
     public void lagreUtover (Utover u, HttpServletResponse response) throws IOException {
-        String sql = "INSERT INTO utover (fornavn, etternavn, klubb, epost, passord)" +
+        String sql = "INSERT INTO utover (fornavn, etternavn, klubb, epost, passord) " +
                 "VALUES (?,?,?,?,?)";
         String hashPassord = krypterPassord(u.getPassord());
         try{
@@ -34,7 +35,7 @@ public class EksamensController {
         }
         catch (Exception e){
             logger.error("Feil i lagreUtover. " + e);
-            response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(),"Feil i databasen - prøv igjen senere.");
+            response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(),"Feil i databasen - prøv igjen senere. ");
         }
     }
 
@@ -44,25 +45,39 @@ public class EksamensController {
 
     // Oppg. 2 b)
     @Autowired
-    HttpSession session;
+    private HttpSession session;
 
     @GetMapping("/loggInn2020")
-    public boolean loggInn2020 (String epost,String passord,HttpServletResponse response) throws IOException{
-        String sql = "SELECT * FROM utover where epost = ?";
-        try{
-            List<Person> personer = db.query(sql,new BeanPropertyRowMapper(Person.class),epost);
-            if(personer != null){
-                if(sjekkPassord(passord,personer.get(0).getPassord())){
+    public boolean loggInn2020 (Person p, HttpServletResponse response) throws IOException {
+        String sql = "SELECT * FROM utover WHERE epost = ?";
+        try {
+            Utover u = db.queryForObject(sql, BeanPropertyRowMapper.newInstance(Utover.class),
+                    new Object[]{p.getEpost()});
+
+            if (sjekkPassord(p.getPassord(), u.getPassord())) {
+                session.setAttribute("Innlogget", true);
+                return true;
+            }
+            else return false;
+        }
+
+        /*
+        try {
+            List <Utover> u = db.query(sql, new BeanPropertyRowMapper(Utover.class),p.getEpost());
+            if (u != null){
+                if(sjekkPassord(p.getPassord(),u.get(0).getPassord())){
+                    session.setAttribute("Innlogget",true);
                     return true;
                 }
             }
             return false;
         }
+        */
         catch (Exception e){
              logger.error("Feil i loggInn2020." + e);
+             response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(),"Brukernavnet finnes ikke eller feil i db.");
             return false;
         }
-
     }
 
     private boolean sjekkPassord (String passord, String hashpassord){

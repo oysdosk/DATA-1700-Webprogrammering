@@ -23,7 +23,7 @@ public class MotorvognController {
     private MotorvognRepo motorvognRepo;
 
     @Autowired
-    HttpSession session;
+    private HttpSession session;
 
     private final Logger logger = LoggerFactory.getLogger(MotorvognController.class);
 

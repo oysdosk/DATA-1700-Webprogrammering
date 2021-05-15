@@ -1,4 +1,4 @@
-package eksamen2020;
+package webprog.eksamensoving.eksamen2020;
 
 public class Utover {
     private String id;

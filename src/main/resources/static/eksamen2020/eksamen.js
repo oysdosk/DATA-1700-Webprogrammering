@@ -8,10 +8,11 @@ const registrerUtover = () => {
         epost: $("#e-post").val(),
         passord: $("#passord").val()
     };
-    $.post("/utover", () => {})
-        .fail((jqXHR) => {
+    $.post("/lagreUtover", utover, () => {
+    })
+        .fail(jqXHR => {
             const json = $.parseJSON(jqXHR.responseText);
-            $("#feil").html(json.message());
+            $("#feil").html(json.message);
         });
 }
 
@@ -19,15 +20,18 @@ const registrerUtover = () => {
 
 const loggInn = () => {
     if(valideringOK()){     // Oppg. 3 sjekker om input er godkjent før kall til server.
-        const url = "/loggInn2020?epost="+$("#e-post2").val()+"&passord="+$("#passord2").val();
-        $.get(url,ok => {
-            if(ok) {
-                $("#loggetInn").html("Innlogging vellykket!");
-            }
-            else {
-                $("#loggetInn").html("Innlogging feilet.");
-            }
-        });
+        const person = {
+            epost: $("#e-post2").val(),
+            passord: $("#passord2").val()
+        };
+        $.get("/loggInn2020", person, ok => {
+            if(ok) $("#loggetInn").html("Innlogging vellykket!");
+            else $("#loggetInn").html("Innlogging feilet.");
+        })
+            .fail(jqXHR => {
+                const json = $.parseJSON(jqXHR.responseText);
+                $("#loggetInn").html(json.message);
+            });
     }
 }
 
