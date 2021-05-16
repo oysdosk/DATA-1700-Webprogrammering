@@ -1,4 +1,4 @@
-package webprog.eksamensoving.pojos;
+package webprog.eksamensoving.konte2020;
 
 public class StudentKarakter {
     private int sId;
@@ -15,7 +15,8 @@ public class StudentKarakter {
         this.aar = aar;
     }
 
-    public StudentKarakter(){}
+    public StudentKarakter() {
+    }
 
     public int getsId() {
         return sId;
@@ -57,4 +58,3 @@ public class StudentKarakter {
         this.aar = aar;
     }
 }
-
