@@ -32,5 +32,31 @@ CREATE TABLE utover(
     epost VARCHAR(255) NOT NULL,
     passord VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
-)
+);
+
+-- Konteeksamen 2020
+
+-- Oppg. 1 a)
+CREATE TABLE student(
+    sId INTEGER(11) NOT NULL,
+    navn VARCHAR (50) NOT NULL,
+    PRIMARY KEY(sId)
+);
+
+CREATE TABLE fag(
+    fId VARCHAR(15) NOT NULL,
+    navn VARCHAR(50) NOT NULL,
+    PRIMARY KEY (fId)
+);
+
+CREATE TABLE studentfag(
+    sId INTEGER(11) NOT NULL,
+    fId VARCHAR(15) NOT NULL,
+    aar INTEGER(11),
+    karakter CHAR(1),
+    prosent INTEGER(11),
+    FOREIGN KEY (sId) REFERENCES student(sId),
+    FOREIGN KEY (fId) REFERENCES fag(fId),
+    PRIMARY KEY (sId,fId,aar)
+);
 
