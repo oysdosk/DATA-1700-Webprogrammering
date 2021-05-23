@@ -43,7 +43,7 @@ public class Prove1Controller {
 
     // Oppg. 3
     public static boolean validerMelding (Melding m, Logger logger){
-        String regexVeistrekning = "[A-Z][0-9]{2}";
+        String regexVeistrekning = "[A-Z][0-9]{1,2}";
         boolean ok = m.getVeistrekning().matches(regexVeistrekning);
         if(ok) return true;
         else {

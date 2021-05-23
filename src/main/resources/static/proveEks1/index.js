@@ -1,6 +1,7 @@
 // Oppg. 2
 
 $(() =>{
+    hentAlleMeldinger();
     $("#registrerMelding").click(() => registrerMelding());
 });
 
