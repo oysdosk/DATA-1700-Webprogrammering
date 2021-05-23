@@ -60,7 +60,7 @@ CREATE TABLE studentfag(
     PRIMARY KEY (sId,fId,aar)
 );
 
--- Prøveeksamen 1
+-- Prøveeksamen 1, tabell for oppg. 3 og 4
 
 CREATE TABLE Melding
 (
