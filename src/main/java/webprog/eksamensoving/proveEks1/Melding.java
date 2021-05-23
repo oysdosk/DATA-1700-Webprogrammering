@@ -1,4 +1,4 @@
-package webprog.eksamensoving.konte2020;
+package webprog.eksamensoving.proveEks1;
 
 public class Melding {
     private String veistrekning;
