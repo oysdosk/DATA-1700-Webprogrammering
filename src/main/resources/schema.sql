@@ -74,3 +74,12 @@ CREATE TABLE Melding
     PRIMARY KEY (id)
 );
 
+-- Prøveeksamen 2
+CREATE TABLE Kunde
+(
+    id INTEGER AUTO_INCREMENT NOT NULL,
+    brukernavn varchar(255) NOT NULL,
+    passord varchar(255) NOT NULL,
+    PRIMARY KEY (id)
+)
+
