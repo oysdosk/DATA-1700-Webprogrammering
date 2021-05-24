@@ -61,18 +61,6 @@ public class EksamensController2020 {
             else return false;
         }
 
-        /*
-        try {
-            List <Utover> u = db.query(sql, new BeanPropertyRowMapper(Utover.class),p.getEpost());
-            if (u != null){
-                if(sjekkPassord(p.getPassord(),u.get(0).getPassord())){
-                    session.setAttribute("Innlogget",true);
-                    return true;
-                }
-            }
-            return false;
-        }
-        */
         catch (Exception e){
              logger.error("Feil i loggInn2020." + e);
              response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(),"Brukernavnet finnes ikke eller feil i db.");

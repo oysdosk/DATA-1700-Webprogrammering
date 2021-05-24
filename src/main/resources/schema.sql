@@ -75,6 +75,7 @@ CREATE TABLE Melding
 );
 
 -- Prøveeksamen 2
+
 CREATE TABLE Kunde
 (
     id INTEGER AUTO_INCREMENT NOT NULL,
@@ -82,4 +83,8 @@ CREATE TABLE Kunde
     passord varchar(255) NOT NULL,
     PRIMARY KEY (id)
 )
+
+-- Eksamen 2021
+
+
 

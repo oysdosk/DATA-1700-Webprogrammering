@@ -2,6 +2,7 @@
 
 $(() => {
     hentAlleMeldinger();
+    $("#registrerMelding").click(() => registrerMelding());
 });
 
 const registrerMelding = () => {
