@@ -76,15 +76,41 @@ CREATE TABLE Melding
 
 -- Prøveeksamen 2
 
-CREATE TABLE Kunde
+CREATE TABLE Kunde1
 (
     id INTEGER AUTO_INCREMENT NOT NULL,
     brukernavn varchar(255) NOT NULL,
     passord varchar(255) NOT NULL,
     PRIMARY KEY (id)
-)
+);
 
 -- Eksamen 2021
 
+CREATE TABLE Pakke
+(
+    PId AUTO_INCREMENT NOT NULL,
+    KId INTEGER(11) FOREIGN KEY REFERENCES Kunde(KId) NULL,
+    Volum DECIMAL (10,0) NOT NULL,
+    Vekt DECIMAL (10,0) NOT NULL,
+    PRIMARY KEY (Pid)
+);
 
+CREATE TABLE Poststed
+(
+    Postnr : varchar(4) NOT NULL,
+    Poststed : varchar(50) NOT NULL,
+    PRIMARY KEY (PostNr)
+);
+
+CREATE TABLE Kunde
+(
+    KId AUTO_INCREMENT NOT NULL,
+    Fornavn VARCHAR(50) NOT NULL,
+    Etternavn VARCHAR(50) NOT NULL,
+    Adresse VARCHAR(50) NOT NULL,
+    Postnr VARCHAR(4) FOREIGN KEY REFERENCES Poststed(Postnr) NOT NULL,
+    Telefonnr VARCHAR(8) NOT NULL,
+    Epost VARCHAR(50) NOT NULL,
+    PRIMARY KEY (KId)
+)
 
